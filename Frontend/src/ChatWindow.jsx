@@ -25,7 +25,7 @@ function ChatWindow() {
         setNewChat(false);
 
         try {
-            const response = await fetch("http://localhost:8080/api/chat", {
+            const response = await fetch("https://hellogpt-wr5v.onrender.com/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
