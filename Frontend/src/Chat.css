@@ -1,0 +1,144 @@
+/* Chat container wrapper */
+.chatContainer {
+    width: 100%;
+    height: 84vh;
+    display: flex;              
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.welcomeText {
+    font-size: 2rem;
+    text-align: center;
+    margin: 14rem 0 0 0;
+}
+
+.chatWrapper {
+    width: 100%; 
+    overflow-y: auto; 
+    padding-bottom: 140px;
+    scroll-behavior: smooth; 
+    flex: 1;
+    box-sizing: border-box;
+
+    scrollbar-width: thick;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+/* Scrollbar styling */
+.chatWrapper::-webkit-scrollbar {
+    width: 14px;
+}
+
+.chatWrapper::-webkit-scrollbar-track {
+    background: #1e1e1e; 
+    border-radius: 10px;
+}
+
+.chatWrapper::-webkit-scrollbar-thumb {
+    background: #2c2c2c; 
+    border-radius: 10px;
+    border: 3px solid #1e1e1e; 
+}
+
+.chatWrapper::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
+}
+
+/* Chats section */
+.chats {
+    max-width: 798px;
+    margin: 0 auto;   
+    padding: 2rem 0.8rem 2rem 1.8rem;
+    box-sizing: border-box;
+}
+
+/* User message wrapper */
+.userDiv {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+/* GPT/Assistant message wrapper */
+.gptDiv {
+    text-align: left;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+/* User message bubble */
+.userMessage {
+    background-color: #323232;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 14px;
+    margin-left: 15rem;
+    max-width: 500px;
+    width: fit-content;
+    word-wrap: break-word;
+}
+
+/* Code block styling */
+.hljs {
+    border-radius: 14px !important;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+}
+
+/* ----- UI responsive for mobile ----- */
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .chats {
+        height: 75vh;
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    .userMessage {
+        margin-left: 5rem;
+        max-width: 80%;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .chats {
+        height: 70vh;
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    .userMessage {
+        margin-left: 2rem;
+        max-width: 85%;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .chats {
+        height: 65vh;
+        padding: 0.8rem;
+    }
+
+    .userMessage {
+        margin-left: 0.5rem;
+        max-width: 95%;
+        font-size: 0.75rem;
+        padding: 8px 14px;
+    }
+
+    .userDiv, .gptDiv {
+        font-size: 0.8rem;
+    }
+}
+
+
+
