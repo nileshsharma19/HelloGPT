@@ -5,17 +5,19 @@ import mongoose from "mongoose";
 import chatRoutes from "./routes/chat.js";
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://hello-gpt-beta.vercel.app"
+  ],
+  methods: ["GET", "POST"],
+}));
 
 app.use("/api", chatRoutes);
-
-app.listen(PORT, () => {
-    console.log(`server running on ${PORT}`);
-    connectDB();
-});
 
 const connectDB = async() => {
     try {
@@ -24,4 +26,9 @@ const connectDB = async() => {
     } catch(err) {
         console.log("Failed to connect with Database", err);
     }
-}
+};
+
+app.listen(PORT, () => {
+    console.log(`server running on ${PORT}`);
+    connectDB();
+});
