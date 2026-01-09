@@ -2,6 +2,7 @@ import "./Sidebar.css";
 import { useContext, useEffect, useCallback, useState } from "react";
 import { MyContext } from "./MyContext.jsx";
 import {v1 as uuidv1} from "uuid";
+import logo from "../assets/blacklogo.png";
 
 function Sidebar() {
     const {allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats} = useContext(MyContext);
@@ -54,11 +55,9 @@ function Sidebar() {
 
     // Delete thread
     const deleteThread = async (threadId) => {
-        // console.log("FRONTEND DELETE:", threadId);
         try {
             const response = await fetch(`https://hellogpt-wr5v.onrender.com/api/thread/${threadId}`, {method: "DELETE"});
             const data = await response.json();
-            // console.log(res);
 
             if (!response.ok) {
                 console.error("Delete failed:", data.error);
@@ -78,7 +77,7 @@ function Sidebar() {
 
     return (
         <>
-            {/* Hamburger button (only mobile) */}
+            {/* Hamburger button */}
             <button
                 className="hamburger"
                 onClick={() => setIsOpen((prev) => !prev)}
@@ -89,7 +88,7 @@ function Sidebar() {
             {/* Sidebar with dynamic class */}
             <section className={`sidebar ${isOpen ? "active" : ""}`}>
                 <div className="logodiv">
-                    <img src="src/assets/blacklogo.png" alt="gpt logo" className="logo"></img>
+                    <img src={logo} alt="gpt logo" className="logo"></img>
                 </div>
                 <button onClick={createNewChat}>
                     <span>

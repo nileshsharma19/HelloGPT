@@ -24,7 +24,6 @@ router.post("/test", async(req, res) => {
 router.get("/thread", async(req, res) => {
     try {
         const threads = await Thread.find({}).sort({updatedAt: -1});
-        //descending order of updatedAt...most recent data on top
         res.json(threads);
     } catch(err) {
         console.log(err);
@@ -52,7 +51,6 @@ router.get("/thread/:threadId", async(req, res) => {
 
 // Delete thread
 router.delete("/thread/:threadId", async (req, res) => {
-    // console.log("DELETE REQUEST FOR:", req.params.threadId);
     const {threadId} = req.params;
 
     try {

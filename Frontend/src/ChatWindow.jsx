@@ -10,7 +10,7 @@ function ChatWindow() {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
-    // Ref for textarea  field
+    // Ref for textarea field
     const inputRef = useRef(null);
 
     // Always focus input on mount, new chat, existing chat change

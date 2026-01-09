@@ -58,7 +58,6 @@ function Chat() {
                         </div>
                     ))}
 
-                    
                     {/* Show assistant's last message */}
                     {prevChats.length > 0 && (
                         <div className="gptDiv">
