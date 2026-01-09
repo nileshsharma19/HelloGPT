@@ -2,7 +2,7 @@ import "./Sidebar.css";
 import { useContext, useEffect, useCallback, useState } from "react";
 import { MyContext } from "./MyContext.jsx";
 import {v1 as uuidv1} from "uuid";
-import logo from "./assets/blacklogo.png";
+// import logo from "./assets/blacklogo.png";
 
 function Sidebar() {
     const {allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats} = useContext(MyContext);
@@ -88,7 +88,7 @@ function Sidebar() {
             {/* Sidebar with dynamic class */}
             <section className={`sidebar ${isOpen ? "active" : ""}`}>
                 <div className="logodiv">
-                    <img src={logo} alt="gpt logo" className="logo"></img>
+                    <img src="/blacklogo.png" alt="gpt logo" className="logo"></img>
                 </div>
                 <button onClick={createNewChat}>
                     <span>
