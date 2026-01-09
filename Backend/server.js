@@ -11,10 +11,9 @@ app.use(express.json());
 
 app.use(cors({
   origin: [
-    // "https://localhost:5173",      
     "https://hello-gpt-beta.vercel.app",
   ],
-  methods: ["GET", "POST"],
+  methods: ["GET", "POST", "DELETE"],
   credentials: true
 }));
 

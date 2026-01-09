@@ -54,10 +54,16 @@ function Sidebar() {
 
     // Delete thread
     const deleteThread = async (threadId) => {
+        // console.log("FRONTEND DELETE:", threadId);
         try {
             const response = await fetch(`https://hellogpt-wr5v.onrender.com/api/thread/${threadId}`, {method: "DELETE"});
-            const res = await response.json();
-            console.log(res);
+            const data = await response.json();
+            // console.log(res);
+
+            if (!response.ok) {
+                console.error("Delete failed:", data.error);
+                return;
+            }
 
             //updated threads re-render
             setAllThreads((prev) => prev.filter((thread) => thread.threadId !== threadId));
@@ -66,7 +72,7 @@ function Sidebar() {
                 createNewChat();
             }
         } catch(err) {
-            console.log(err);
+            console.error("Delete error:", err);
         }
     };
 

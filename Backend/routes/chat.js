@@ -52,6 +52,7 @@ router.get("/thread/:threadId", async(req, res) => {
 
 // Delete thread
 router.delete("/thread/:threadId", async (req, res) => {
+    // console.log("DELETE REQUEST FOR:", req.params.threadId);
     const {threadId} = req.params;
 
     try {
