@@ -10,7 +10,7 @@ function Sidebar() {
     // Fetch all threads
     const getAllThreads = useCallback(async () => {
         try {
-            const response = await fetch("http://localhost:8080/api/thread");
+            const response = await fetch("https://hellogpt-wr5v.onrender.com/api/thread");
             const res = await response.json();
 
             const filteredData = res.map((thread) => ({
@@ -41,7 +41,7 @@ function Sidebar() {
     const changeThread = useCallback(async (newThreadId) => {
         setCurrThreadId(newThreadId);
         try {
-            const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`);
+            const response = await fetch(`https://hellogpt-wr5v.onrender.com/api/thread/${newThreadId}`);
             const res = await response.json();
             setPrevChats(res);
             setNewChat(false);
@@ -55,7 +55,7 @@ function Sidebar() {
     // Delete thread
     const deleteThread = async (threadId) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/thread/${threadId}`, {method: "DELETE"});
+            const response = await fetch(`https://hellogpt-wr5v.onrender.com/api/thread/${threadId}`, {method: "DELETE"});
             const res = await response.json();
             console.log(res);
 
